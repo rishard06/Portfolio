@@ -1,21 +1,33 @@
-import React from "react";
+"use client";
+
+import React, { memo, useRef } from "react";
 import Link from "next/link.js";
 import { navValues } from "@/libs/linksObjects.js";
+import CursorEffect from "@/components/cursorEffect.jsx";
 
-function NavBar() {  
+function NavBar() {
+  const navRef = useRef([]);
+
   return (
     <div>
-      <nav className="flex justify-center items-center p-4 text-white bg-lightBlue">
-        <ul className="flex space-x-10">
-          {navValues.map((item) => (
-            <li key={item.name}>
-              <Link href={item.link} className="hover:text-gray-400 hover:border-b-2 border-[#FFB703] transition duration-300 ease-in-out">
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <nav className="flex justify-center items-center z-10 p-4 text-white bg-lightBlue">
+        {navValues.map((item, index) => (
+          <div 
+            key={item.name}
+            ref={(el) => {navRef.current[index] = el;}}
+            className="flex h-14 w-14 gap-6 justify-center items-center hover:cursor-pointer"
+          >
+            
+            <Link
+              href={item.link}
+            >
+              {item.name}
+            </Link>
+          </div>
+        ))}
       </nav>
+
+      <CursorEffect navRef={navRef} />
     </div>
   );
 }
