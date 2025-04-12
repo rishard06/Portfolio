@@ -1,19 +1,19 @@
-const config = {
-  content: ['./src/**/*.{html,js}'],
-  plugin: [],
+module.exports = {
+  content: [
+    "./src/**/*.{html, js}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
-      colors: {
-        primary: 'red',
-        'purple': '#7e5bef',
-        'pink': '#ff49db',
-      },
-      spacing: {
-        '8xl': '96rem',
-        '9xl': '128rem',
-      },
+      colors:{
+        primary:  "#FFB703"
+      }
     },
   },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
 }
-
-export default config;
