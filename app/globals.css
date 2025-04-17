@@ -12,23 +12,33 @@
   --color-prussian-blue: #023047;
   --color-blue-green: #219EBC;
   --color-sky-blue: #8ECAE6;
+  --color-dark-violet: #1C0B47;
   --font-montserrat: var(--font-montserrat);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background-image: url("/NeonBG6.jpg");
+  background: var(--color-dark-violet);
+  background-image: url("/NeonBG6.jpg"), linear-gradient(to bottom, black 0, transparent 100%);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: var(--font-montserrat), Helvetica, sans-serif;
 }
 
-@layer utilities {
-   {
-
-  }
+/* .card-div {
+  display: grid;
+  grid: [gui] 1fr / [challenges] min(70vmin, 40ch);
+  justify-self: center;
 }
+
+.card {
+  gap: 10px;
+  aspect-ratio: 3/4;
+  grid-area: gui / challenges;
+  transform-origin: top left;
+  transform: rotate(20deg);
+} */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
