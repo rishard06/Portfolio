@@ -40,7 +40,7 @@ export default function Cards({ data }) {
               x: (i - 1) * 450,
               rotate: (i - 1) * 4,
             }}
-            transition={{ ease: "backInOut", duration: 0.6, delay: 2 }}
+            transition={{ ease: "anticipate", duration: 1, delay: 2 }}
             className={`absolute`}
             key={i}
           >
