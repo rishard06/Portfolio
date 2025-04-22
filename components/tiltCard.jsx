@@ -36,14 +36,14 @@ export default function TiltCard({ title, description, image, buttonText, classN
             as={Link}
             href="https://twitter.com/mannupaaji"
             target="__blank"
-            className="px-4 py-2 rounded-xl text-xs font-normal shadow-lg shadow-black/20 dark:shadow-gray-500/20 text-black dark:text-white"
+            className="px-4 py-2 rounded-xl text-xs font-normal shadow-lg shadow-black/20 text-black dark:text-white"
           >
             Try now →
           </CardItem>
           <CardItem
             translateZ={80}
             as="button"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            className="px-4 py-2 rounded-xl bg-black dark:bg-yellows dark:text-black text-white text-xs font-bold"
           >
             Sign up
           </CardItem>

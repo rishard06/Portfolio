@@ -4,32 +4,44 @@ import React, { useRef } from "react";
 import { motion } from "motion/react";
 import TiltCard from "@/components/tiltCard.jsx";
 import { cardImgLink } from "@/lib/linksObjects.js";
-// import pokemonDataFetch from "@/lib/pokemonDataFetch.js";
 
 export default function Cards({ data }) {
   return (
     <motion.div
-      initial={{ y: 600, opacity: 0 }}
+      initial={{ y: 700}}
       transition={{
         duration: 3,
         ease: [0, 0.71, 0.2, 1],
         type: "spring",
         bounce: 0.2,
       }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{ y: 0 }}
       className="relative flex gap-5 py-20 justify-center text-white"
     >
-      {cardImgLink.map((item, i) => { 
+      {cardImgLink.map((item, i) => {
         return (
           <motion.div
-            whilehover={{ x: -100 }}
+            whileHover={{
+              y: -50,
+              transition: {
+                delay: 0.2,
+                duration: 0.2,
+              },
+            }}
             initial={{
+              y: 0,
               x: 0,
-              rotate: i * 10,
-              transformOrigin: "center",
+              transition: { duration: 0.4 },
+              rotate: i * 5,
+              transformOrigin: "bottom center",
               zIndex: cardImgLink.length - i,
             }}
-            className={`absolute scale-85`}
+            animate={{
+              x: (i - 1) * 450,
+              rotate: (i - 1) * 4,
+            }}
+            transition={{ ease: "backInOut", duration: 0.6, delay: 2 }}
+            className={`absolute`}
             key={i}
           >
             <TiltCard
