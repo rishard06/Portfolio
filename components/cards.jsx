@@ -4,11 +4,17 @@ import React, { useRef } from "react";
 import { motion } from "motion/react";
 import TiltCard from "@/components/tiltCard.jsx";
 import { cardImgLink } from "@/lib/linksObjects.js";
+import { useCursorStore } from "@/lib/store.js";
 
 export default function Cards({ data }) {
+  const updateCursorSize = useCursorStore((state) => state.updateCursorSize);
+  const resetCursorSize = useCursorStore((state) => state.resetCursorSize);
+
+  const imageMidNum = Math.floor(cardImgLink.length / 2);
+
   return (
     <motion.div
-      initial={{ y: 700}}
+      initial={{ y: 700 }}
       transition={{
         duration: 3,
         ease: [0, 0.71, 0.2, 1],
@@ -23,6 +29,7 @@ export default function Cards({ data }) {
           <motion.div
             whileHover={{
               y: -50,
+              zIndex: 50,
               transition: {
                 delay: 0.2,
                 duration: 0.2,
@@ -33,22 +40,30 @@ export default function Cards({ data }) {
               x: 0,
               transition: { duration: 0.4 },
               rotate: i * 5,
-              transformOrigin: "bottom center",
+              transformOrigin: "center",
               zIndex: cardImgLink.length - i,
             }}
             animate={{
-              x: (i - 1) * 450,
-              rotate: (i - 1) * 4,
+              x: (i - imageMidNum) * 230,
+              rotate:
+                i === imageMidNum
+                  ? 0
+                  : i < imageMidNum
+                  ? i + -3
+                  : i + 1 - imageMidNum,
             }}
             transition={{ ease: "anticipate", duration: 1, delay: 2 }}
             className={`absolute`}
             key={i}
+            onMouseOver={() => updateCursorSize(70)}
+            onMouseLeave={() => resetCursorSize()}
           >
             <TiltCard
               title="Example"
               description="this is a description example"
               buttonText="try click this"
               image={item.link}
+              className="scale-100"
             />
           </motion.div>
         );

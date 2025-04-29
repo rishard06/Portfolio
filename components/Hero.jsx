@@ -5,7 +5,8 @@ export default function Hero() {
     <div 
       className="hero"
     >
-      Hero
+      <img src="./bg.jpg" alt="aa" />
+      <img src="./black-bg.jpg" alt="aa" />
     </div>
   )
 }

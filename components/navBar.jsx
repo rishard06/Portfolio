@@ -5,15 +5,18 @@ import Link from "next/link.js";
 import { spring, motion } from "motion/react";
 import { navValues } from "@/lib/linksObjects.js";
 import CursorEffect from "@/components/cursorEffect.jsx";
+import { useCursorStore } from "@/lib/store.js";
 
 function NavBar() {
-  const navRef = useRef(null);
+  const updateCursorSize = useCursorStore((state) => state.updateCursorSize);
+  const resetCursorSize = useCursorStore((state) => state.resetCursorSize);
 
   return (
     <div className="flex justify-center items-center p-4 text-white">
       <motion.nav
-        className="fixed z-50 top-2 overflow-hidden whitespace-nowrap flex flex-row gap-6 px-8 py-2 backdrop-blur-lg rounded-full shadow-lg shadow-black/50"
-        ref={navRef}
+        className="fixed z-50 top-2 bg-gray-50/30 overflow-hidden whitespace-nowrap flex flex-row gap-6 px-8 py-2 dark:bg-black/50 backdrop-blur-3xl rounded-full shadow-lg shadow-black/50"
+        onMouseOver={() => updateCursorSize(70)}
+        onMouseLeave={() => resetCursorSize()}
       >
         {navValues.map((item) => (
           <motion.div
@@ -58,7 +61,7 @@ function NavBar() {
         ))}
       </motion.nav>
 
-      <CursorEffect navRef={navRef} />
+      <CursorEffect />
     </div>
   );
 }

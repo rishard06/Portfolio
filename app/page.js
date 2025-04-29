@@ -3,13 +3,13 @@ import Hero from "@/components/Hero.jsx";
 
 
 export default async function Home() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5");
-  const data = await response.json();
+  // const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5");
+  // const data = await response.json();
 
   return (
     <>
+      <Cards />
       <Hero />
-      <Cards data={data} />
     </>
   );
 }
