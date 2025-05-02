@@ -19,8 +19,8 @@
 }
 
 body {
-  background: var(--color-dark-violet);
-  background-image: url("/NeonBG6.jpg"), linear-gradient(to bottom, black 0, transparent 100%);
+  background: black ;
+  /* background-image: url("/NeonBG6.jpg"), linear-gradient(to bottom, black 0, transparent 100%); */
   background-size: cover;
   background-repeat: no-repeat;
   font-family: var(--font-montserrat), Helvetica, sans-serif;
